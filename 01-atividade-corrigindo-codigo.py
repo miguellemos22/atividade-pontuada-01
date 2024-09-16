@@ -13,6 +13,7 @@ soma_impares = 0
 soma_geral = 0
 for i in range(quantidade_numeros):
     numeros = int(input(f"digite o {i + 1}º numero: "))
+    soma_geral += numeros
     lista_numeros.append(numeros)
     
     if numeros % 2 == 0:
@@ -27,14 +28,11 @@ for i in range(quantidade_numeros):
         quantidade_negativos += 1
     elif numeros > 0:
         quantidade_positivos += 1
-
+        
 maior_numeros = max(lista_numeros)
 menor_numeros = min(lista_numeros)
 
-soma_geral += numeros
 media_geral = soma_geral / 5
-media_pares = soma_pares / quantidade_pares 
-media_impares = soma_impares / quantidade_impares 
 
 # Mostrando números na ordem inversa
 
@@ -46,8 +44,16 @@ print(f"Quantidade de positivos: {quantidade_positivos}")
 print(f"Quantidade de negativos: {quantidade_negativos}")
 print(f"Maior número: {maior_numeros}")
 print(f"Menor número: {menor_numeros}")
-print(f"Média dos números pares: {media_pares:.2f}")
-print(f"Média dos números ímpares: {media_impares:.2f}")
+if quantidade_pares > 0:
+    media_pares = soma_pares / quantidade_pares
+    print(f"media dos numeros pares: {media_pares:.2f}")
+else:
+    print("não possui media de numeros pares") 
+if quantidade_impares > 0:
+    media_impares = soma_impares / quantidade_impares 
+    print(f"media dos numeros impares: {media_impares:.2f}")
+else:
+    print("não possui media de numeros impares")
 print(f"Média de todos os números: {media_geral:.2f}")
 
 for i,numero in enumerate(reversed(lista_numeros)):
